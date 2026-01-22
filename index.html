@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misha VPN Connect</title>
+    <style>
+        body { font-family: -apple-system, system-ui, sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        .card { background: #1e293b; padding: 30px; border-radius: 20px; max-width: 400px; margin: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .btn { display: block; padding: 15px; margin: 15px 0; border-radius: 12px; text-decoration: none; color: white; font-weight: bold; transition: 0.2s; }
+        .happ { background: #ef4444; }
+        .v2ray { background: #3b82f6; }
+        .hiddify { background: #8b5cf6; }
+        .btn:active { transform: scale(0.98); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>🚀 Подключение</h2>
+        <p>Выберите приложение:</p>
+        <a id="happ" class="btn happ">Импорт в hApp</a>
+        <a id="v2ray" class="btn v2ray">Импорт в v2rayTun</a>
+        <a id="hiddify" class="btn hiddify">Импорт в Hiddify</a>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const sub = urlParams.get('url');
+        if (sub) {
+            document.getElementById('happ').href = "happ://add/" + sub;
+            document.getElementById('v2ray').href = "v2raytun://import/" + sub;
+            document.getElementById('hiddify').href = "hiddify://import/" + sub;
+        }
+    </script>
+</body>
+</html>
